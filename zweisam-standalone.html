@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes" />
+<title>Zweisam</title>
+<meta name="apple-mobile-web-app-title" content="Zweisam" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<link rel="icon" type="image/png" href="data:image/png;base64,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" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- ======================================================================
+     WICHTIG: Hier deine eigene Firebase-Konfiguration einfügen!
+     Anleitung: siehe Nachricht im Chat / README weiter unten im Code.
+     ====================================================================== -->
+<script>
+  const FIREBASE_CONFIG = {
+    apiKey: "HIER_DEIN_API_KEY",
+    authDomain: "HIER_DEIN_PROJEKT.firebaseapp.com",
+    projectId: "HIER_DEIN_PROJEKT",
+    storageBucket: "HIER_DEIN_PROJEKT.appspot.com",
+    messagingSenderId: "HIER_DEINE_SENDER_ID",
+    appId: "HIER_DEINE_APP_ID"
+  };
+</script>
+
+<script>
+  function scriptFail(){
+    document.getElementById('app').innerHTML = `<div style="padding:60px 30px;color:#F5EDE6;font-family:sans-serif;text-align:center;">
+      <p style="font-size:40px;margin:0 0 12px;">⚠️</p>
+      <p style="font-size:16px;margin:0 0 10px;">Firebase konnte nicht geladen werden.</p>
+      <p style="color:#AD8A92;font-size:13px;line-height:1.5;">
+        Das passiert fast immer, wenn die Datei per Doppelklick lokal geöffnet wird (Adresse beginnt mit <b>file://</b>)
+        statt über einen echten Link im Internet.<br/><br/>
+        Lade die Datei bei <b>app.netlify.com/drop</b> hoch und öffne den dortigen Link — dann klappt es.
+      </p>
+    </div>`;
+  }
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js" onerror="scriptFail()"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js" onerror="scriptFail()"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js" onerror="scriptFail()"></script>
+
+<style>
+  :root{
+    --bg:#120A0D; --bg2:#1C1013; --card:#20141A; --border:#3A2027;
+    --accent:#E8536B; --accent2:#7A1B2E; --gold:#E7B85E; --text:#F5EDE6; --muted:#AD8A92;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;
+    -webkit-tap-highlight-color:transparent; overscroll-behavior:none;}
+  #app{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;position:relative;}
+  h1,h2,.serif{font-family:Fraunces,serif;}
+  input,select,textarea,button{font-family:Inter,sans-serif;font-size:14px;}
+  input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+    color:var(--text);padding:12px 14px;outline:none;}
+  button{cursor:pointer;border:none;}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-radius:14px;
+    padding:13px;font-weight:600;width:100%;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;}
+  .muted{color:var(--muted);}
+  .gold{color:var(--gold);}
+  .row{display:flex;align-items:center;}
+  .between{justify-content:space-between;}
+  .gap8{gap:8px;} .gap12{gap:12px;} .gap16{gap:16px;}
+  .px20{padding-left:20px;padding-right:20px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .tile{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 8px;
+    text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .tile:active{opacity:0.7;}
+  .topbar{display:flex;align-items:center;gap:12px;padding:22px 20px 14px;}
+  .backbtn{width:36px;height:36px;border-radius:12px;background:var(--card);border:1px solid var(--border);
+    color:var(--text);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .checkbox{width:20px;height:20px;border-radius:6px;border:2px solid var(--muted);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;}
+  .checkbox.done{background:var(--accent);border-color:var(--accent);color:#fff;font-size:12px;}
+  .tag{font-size:11px;padding:5px 10px;border-radius:999px;background:var(--bg2);color:var(--muted);
+    border:1px solid var(--border);}
+  .tag.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:var(--bg2);
+    border-top:1px solid var(--border);display:flex;padding-bottom:env(safe-area-inset-bottom);}
+  .navbtn{flex:1;background:none;color:var(--muted);display:flex;flex-direction:column;align-items:center;
+    gap:2px;padding:10px 0;font-size:11px;}
+  .navbtn.active{color:var(--accent);}
+  .content{flex:1;overflow-y:auto;padding-bottom:90px;}
+  .heart-pulse{animation:beat 1.6s ease-in-out infinite;transform-origin:center;}
+  @keyframes beat{0%,100%{transform:scaleY(1);}50%{transform:scaleY(1.35);}}
+  .bubble{max-width:78%;border-radius:16px;padding:10px 14px;font-size:14px;margin-bottom:2px;}
+  .bubble.mine{margin-left:auto;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
+  .bubble.theirs{background:var(--card);border:1px solid var(--border);}
+  .calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+  .calcell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border-radius:10px;font-size:12px;border:1px solid transparent;background:none;color:var(--text);}
+  .calcell.selected{background:var(--accent);color:#fff;}
+  .calcell.today{border-color:var(--gold);}
+  .dot{width:4px;height:4px;border-radius:4px;background:var(--gold);margin-top:2px;}
+  .calcell.selected .dot{background:#fff;}
+</style>
+</head>
+<body>
+<div id="app"><div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:32px;">❤️</div></div>
+
+<script>
+/* ============================= DATEN / KONSTANTEN ============================= */
+
+const MOODS = [
+  {emoji:"😍",label:"verliebt"},{emoji:"😊",label:"glücklich"},{emoji:"😌",label:"entspannt"},
+  {emoji:"😴",label:"müde"},{emoji:"😤",label:"gestresst"},{emoji:"😢",label:"traurig"},
+  {emoji:"😠",label:"genervt"},{emoji:"😐",label:"neutral"},
+];
+const QUESTIONS = [
+  "Was war der schönste Moment mit mir in letzter Zeit?","Woran hast du heute als Erstes gedacht?",
+  "Was schätzt du gerade besonders an mir?","Wovon träumst du, das wir zusammen erleben?",
+  "Was war heute dein kleines Highlight?","Welche Erinnerung an uns bringt dich sofort zum Lächeln?",
+  "Was wünschst du dir gerade am meisten von mir?","Was war eine Kleinigkeit, die dir heute Freude gemacht hat?",
+  "Wo würdest du mit mir spontan hinreisen?","Was liebst du an unserem Alltag zusammen?",
+  "Was macht dich gerade nachdenklich?","Wie fühlst du dich gerade wirklich?",
+  "Was war die beste Umarmung, an die du dich erinnerst?","Was möchtest du diese Woche gemeinsam schaffen?",
+  "Was an mir bringt dich immer zum Lachen?",
+];
+const SIGNALS = [
+  {emoji:"❤️",label:"Ich denke an dich"},{emoji:"🤗",label:"Vermisse dich"},{emoji:"😘",label:"Ein Kuss für dich"},
+  {emoji:"📞",label:"Ruf mich an"},{emoji:"☕",label:"Kaffee zusammen?"},{emoji:"🌙",label:"Gute Nacht"},
+  {emoji:"✨",label:"Ich bin stolz auf dich"},{emoji:"🆘",label:"Brauche dich gerade"},
+];
+const LUST_LEVELS = [{emoji:"🌙",label:"eher ruhig"},{emoji:"🙂",label:"offen dafür"},{emoji:"🔥",label:"sehr viel Lust"}];
+const INTIMACY_SEED = ["Ruhiger Abend nur wir zwei, ohne Handys","Massage füreinander","Kerzenlicht und gute Musik",
+  "Langes Kuscheln vor dem Einschlafen","Ein romantisches Bad zu zweit"];
+const ACTIVITY_TAGS = ["Zuhause","Draußen","Reise","Essen","Kultur"];
+const WEEKDAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
+const MONTHS = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+
+const dayIndex = () => { const d=new Date(); const start=new Date(d.getFullYear(),0,0); return Math.floor((d-start)/86400000); };
+const todayKey = () => new Date().toISOString().slice(0,10);
+const timeAgo = (ts) => { const s=Math.floor((Date.now()-ts)/1000);
+  if(s<60) return "gerade eben"; if(s<3600) return `vor ${Math.floor(s/60)} Min.`;
+  if(s<86400) return `vor ${Math.floor(s/3600)} Std.`; return `vor ${Math.floor(s/86400)} Tg.`; };
+const genCode = () => { const c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let o=""; for(let i=0;i<6;i++) o+=c[Math.floor(Math.random()*c.length)]; return o; };
+const ymd = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+function monthGrid(year,month){
+  const first=new Date(year,month,1); const startOffset=(first.getDay()+6)%7;
+  const daysInMonth=new Date(year,month+1,0).getDate(); const cells=[];
+  for(let i=0;i<startOffset;i++) cells.push(null);
+  for(let d=1;d<=daysInMonth;d++) cells.push(new Date(year,month,d));
+  while(cells.length%7!==0) cells.push(null);
+  return cells;
+}
+function esc(s){ return String(s??"").replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m])); }
+
+/* ============================= FIREBASE ============================= */
+
+firebase.initializeApp(FIREBASE_CONFIG);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+// Jede Person meldet sich anonym an (kein Passwort, kein Konto sichtbar).
+// Diese UID entscheidet zusammen mit den Firestore-Regeln, wer auf einen
+// Paar-Code zugreifen darf.
+let currentUser = null;
+function initAuth(){
+  return new Promise((resolve, reject) => {
+    auth.onAuthStateChanged((user) => {
+      if (user) { currentUser = user; resolve(user); }
+      else { auth.signInAnonymously().catch(reject); }
+    }, reject);
+  });
+}
+
+function coupleRef(code){ return db.collection("couples").doc(code); }
+
+async function ensureCouple(code, name){
+  const ref = coupleRef(code);
+  const uid = currentUser.uid;
+  const snap = await ref.get();
+  if(!snap.exists){
+    await ref.set({
+      profile:{members:[name],createdAt:Date.now()}, authorizedUids:[uid],
+      mood:{}, tagesfrage:{}, messages:[], signals:[], events:[], tasks:[],
+      expenses:[], shopping:[], activities:[],
+      intimacy:{checkins:{}, ideas: INTIMACY_SEED.map((t,i)=>({id:i,text:t,done:false}))}, technik:[]
+    });
+  } else {
+    const data = snap.data();
+    const members = data.profile?.members || [];
+    const uids = data.authorizedUids || [];
+    if(!uids.includes(uid) && uids.length < 2){
+      await ref.update({ authorizedUids: firebase.firestore.FieldValue.arrayUnion(uid) });
+    }
+    if(!members.includes(name) && members.length < 2){
+      await ref.update({ "profile.members": [...members, name] });
+    }
+  }
+  return ref;
+}
+async function patch(fields){
+  await coupleRef(state.me.code).update(fields);
+}
+
+/* ============================= STATE ============================= */
+
+let state = { me:null, data:null, tab:"home", sub:null, calCursor:new Date(), calSelected:ymd(new Date()) };
+let unsub = null;
+
+function loadMe(){
+  try { return JSON.parse(localStorage.getItem("zweisam_me")); } catch(e){ return null; }
+}
+function saveMe(me){ localStorage.setItem("zweisam_me", JSON.stringify(me)); }
+function clearMe(){ localStorage.removeItem("zweisam_me"); }
+
+async function boot(){
+  if (typeof firebase === "undefined") { scriptFail(); return; }
+  try {
+    await initAuth();
+    const me = loadMe();
+    if(me && me.code && me.name){
+      state.me = me;
+      await ensureCouple(me.code, me.name);
+      listen();
+    } else {
+      render();
+    }
+  } catch (e) {
+    console.error(e);
+    scriptFail();
+  }
+}
+function listen(){
+  if(unsub) unsub();
+  unsub = coupleRef(state.me.code).onSnapshot((snap)=>{
+    state.data = snap.data();
+    render();
+  });
+}
+
+/* ============================= ACTIONS ============================= */
+
+async function doJoin(){
+  const name = document.getElementById("nameInput").value.trim();
+  const codeRaw = document.getElementById("codeInput").value.trim();
+  const err = document.getElementById("joinErr");
+  err.textContent = "";
+  if(!name){ err.textContent = "Bitte gib deinen Namen ein."; return; }
+  const code = (codeRaw || genCode()).toUpperCase();
+  const snap = await coupleRef(code).get();
+  if(snap.exists){
+    const uids = snap.data().authorizedUids || [];
+    if(uids.length >= 2 && !uids.includes(currentUser.uid)){
+      err.textContent = "Dieser Code hat schon zwei Personen."; return;
+    }
+  }
+  await ensureCouple(code, name);
+  state.me = {name, code};
+  saveMe(state.me);
+  listen();
+}
+function doLeave(){ clearMe(); if(unsub) unsub(); state = {...state, me:null, data:null, tab:"home", sub:null}; render(); }
+
+function setMood(m){ const mood={...(state.data.mood||{})}; mood[state.me.name]={emoji:m.emoji,label:m.label,updatedAt:Date.now()}; patch({mood}); }
+function saveAnswer(text){
+  const tf = {...(state.data.tagesfrage||{})};
+  const today = todayKey();
+  const entry = tf[today] || {answers:{}};
+  entry.answers = {...entry.answers, [state.me.name]: text};
+  tf[today] = entry;
+  patch({tagesfrage: tf});
+}
+function sendMessage(text){
+  if(!text.trim()) return;
+  const messages = [...(state.data.messages||[]), {from:state.me.name, text:text.trim(), time:Date.now()}].slice(-50);
+  patch({messages});
+}
+function sendSignal(s){
+  const signals = [...(state.data.signals||[]), {from:state.me.name, emoji:s.emoji, label:s.label, time:Date.now()}].slice(-20);
+  patch({signals});
+}
+function addEvent(title, date, time){
+  if(!title.trim() || !date) return;
+  const events = [...(state.data.events||[]), {id:Date.now(), title:title.trim(), date, time:time||"", by:state.me.name}]
+    .sort((a,b)=> (a.date+(a.time||"")).localeCompare(b.date+(b.time||"")));
+  patch({events});
+}
+function removeEvent(id){ patch({events: (state.data.events||[]).filter(e=>e.id!==id)}); }
+
+function addTask(text){ if(!text.trim()) return; patch({tasks:[...(state.data.tasks||[]), {id:Date.now(), text:text.trim(), done:false, by:state.me.name}]}); }
+function toggleTask(id){ patch({tasks:(state.data.tasks||[]).map(t=>t.id===id?{...t,done:!t.done}:t)}); }
+function removeTask(id){ patch({tasks:(state.data.tasks||[]).filter(t=>t.id!==id)}); }
+
+function addShopping(text){ if(!text.trim()) return; patch({shopping:[...(state.data.shopping||[]), {id:Date.now(), text:text.trim(), done:false}]}); }
+function toggleShopping(id){ patch({shopping:(state.data.shopping||[]).map(s=>s.id===id?{...s,done:!s.done}:s)}); }
+function removeShopping(id){ patch({shopping:(state.data.shopping||[]).filter(s=>s.id!==id)}); }
+function clearDoneShopping(){ patch({shopping:(state.data.shopping||[]).filter(s=>!s.done)}); }
+
+function addActivity(text, tag){ if(!text.trim()) return; patch({activities:[...(state.data.activities||[]), {id:Date.now(), text:text.trim(), tag, done:false}]}); }
+function toggleActivity(id){ patch({activities:(state.data.activities||[]).map(a=>a.id===id?{...a,done:!a.done}:a)}); }
+function removeActivity(id){ patch({activities:(state.data.activities||[]).filter(a=>a.id!==id)}); }
+
+function setLust(l){ const intimacy={...(state.data.intimacy||{checkins:{},ideas:[]})}; intimacy.checkins={...intimacy.checkins,[state.me.name]:{emoji:l.emoji,label:l.label,updatedAt:Date.now()}}; patch({intimacy}); }
+function addIdea(text){ if(!text.trim()) return; const intimacy={...(state.data.intimacy||{checkins:{},ideas:[]})}; intimacy.ideas=[...(intimacy.ideas||[]), {id:Date.now(),text:text.trim(),done:false}]; patch({intimacy}); }
+function toggleIdea(id){ const intimacy={...(state.data.intimacy||{checkins:{},ideas:[]})}; intimacy.ideas=(intimacy.ideas||[]).map(i=>i.id===id?{...i,done:!i.done}:i); patch({intimacy}); }
+function removeIdea(id){ const intimacy={...(state.data.intimacy||{checkins:{},ideas:[]})}; intimacy.ideas=(intimacy.ideas||[]).filter(i=>i.id!==id); patch({intimacy}); }
+
+function addExpense(desc, amount, paidBy){ const val=parseFloat(String(amount).replace(",",".")); if(!desc.trim()||!val) return;
+  patch({expenses:[...(state.data.expenses||[]), {id:Date.now(), desc:desc.trim(), amount:val, paidBy}]}); }
+function removeExpense(id){ patch({expenses:(state.data.expenses||[]).filter(e=>e.id!==id)}); }
+
+function addTechnik(title, value){ if(!title.trim()||!value.trim()) return;
+  patch({technik:[...(state.data.technik||[]), {id:Date.now(), title:title.trim(), value:value.trim()}]}); }
+function removeTechnik(id){ patch({technik:(state.data.technik||[]).filter(t=>t.id!==id)}); }
+
+function go(tab, sub){ state.tab = tab; state.sub = sub || null; render(); }
+
+/* ============================= RENDER ============================= */
+
+function render(){
+  const app = document.getElementById("app");
+  if(!state.me){ app.innerHTML = renderOnboarding(); attachOnboarding(); return; }
+  if(!state.data){ app.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:32px;">❤️</div>`; return; }
+  app.innerHTML = renderApp();
+  attachApp();
+}
+
+function renderOnboarding(){
+  return `
+  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:40px 24px;background:radial-gradient(circle at 50% 0%, var(--accent2) 0%, var(--bg) 60%);">
+    <div style="font-size:56px;">❤️</div>
+    <h1 style="font-size:30px;font-weight:700;margin:14px 0 6px;">Zweisam</h1>
+    <p class="muted" style="text-align:center;font-size:14px;margin:0 0 24px;">Eure kleine gemeinsame Welt.<br/>Kalender, Listen, Stimmungen & mehr.</p>
+    <div style="width:100%;max-width:340px;">
+      <label class="muted" style="font-size:13px;">Dein Name</label>
+      <input id="nameInput" placeholder="z. B. Laura" style="margin:6px 0 16px;" />
+      <label class="muted" style="font-size:13px;">Paar-Code (falls vorhanden)</label>
+      <input id="codeInput" placeholder="leer lassen für neuen Code" style="margin:6px 0 8px;text-transform:uppercase;letter-spacing:2px;" />
+      <p id="joinErr" style="color:var(--accent);font-size:13px;min-height:16px;"></p>
+      <button class="btn-primary" id="joinBtn">Los geht's</button>
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:12px;">Ohne Code wird einer erstellt — teile ihn danach mit deiner Partnerin oder deinem Partner.</p>
+    </div>
+  </div>`;
+}
+function attachOnboarding(){
+  document.getElementById("joinBtn").onclick = doJoin;
+}
+
+function topBar(title, back){
+  return `<div class="topbar">
+    ${back ? `<button class="backbtn" onclick="go('${back.tab}', ${back.sub?`'${back.sub}'`:null})">←</button>` : ""}
+    <h1 class="serif" style="font-size:22px;font-weight:600;margin:0;">${title}</h1>
+  </div>`;
+}
+
+function renderApp(){
+  const d = state.data;
+  const me = state.me;
+  const profile = d.profile || {members:[me.name], createdAt:Date.now()};
+  const partnerName = profile.members.find(m=>m!==me.name);
+  const waiting = profile.members.length < 2;
+  const myMood = (d.mood||{})[me.name];
+  const partnerMood = partnerName ? (d.mood||{})[partnerName] : null;
+  const latest = [ {n:me.name,m:myMood}, {n:partnerName,m:partnerMood} ].filter(x=>x.m).sort((a,b)=>b.m.updatedAt-a.m.updatedAt)[0];
+  const daysTogether = Math.max(1, Math.floor((Date.now()-profile.createdAt)/86400000)+1);
+  const signals = d.signals||[];
+  const incoming = signals.filter(s=>s.from!==me.name).slice(-6).reverse();
+  const shopping = d.shopping||[];
+  const openShopping = shopping.filter(s=>!s.done).length;
+
+  let body = "";
+  if(state.tab==="home" && !state.sub) body = renderHome(d, me, profile, partnerName, waiting, latest, daysTogether, incoming, openShopping);
+  else if(state.sub==="stimmung") body = renderStimmung(d, me, partnerName, myMood, partnerMood);
+  else if(state.sub==="tagesfrage") body = renderTagesfrage(d, me, partnerName);
+  else if(state.sub==="nachricht") body = renderNachricht(d, me);
+  else if(state.sub==="signale") body = renderSignale(d, me, partnerName);
+  else if(state.sub==="einkauf") body = renderListe("Einkaufsliste", shopping, "toggleShopping", "removeShopping", "addShoppingInput", "z. B. Milch, Brot...", {tab:"home"}, shopping.some(s=>s.done));
+  else if(state.sub==="aktivitaeten") body = renderAktivitaeten(d);
+  else if(state.sub==="intimitaet") body = renderIntimitaet(d, me, partnerName);
+  else if(state.sub==="technik") body = renderTechnik(d);
+  else if(state.sub==="ausgaben") body = renderAusgaben(d, profile);
+  else if(state.tab==="kalender") body = renderKalender(d);
+  else if(state.tab==="aufgaben") body = renderAufgaben(d);
+  else if(state.tab==="mehr") body = renderMehr(d, profile, me);
+
+  return `
+  <div class="content">${body}</div>
+  <div class="nav">
+    <button class="navbtn ${state.tab==='home'&&!state.sub?'active':''}" onclick="go('home')">🏠<span>Home</span></button>
+    <button class="navbtn ${state.tab==='kalender'&&!state.sub?'active':''}" onclick="go('kalender')">📅<span>Kalender</span></button>
+    <button class="navbtn ${state.tab==='aufgaben'&&!state.sub?'active':''}" onclick="go('aufgaben')">✅<span>Aufgaben</span></button>
+    <button class="navbtn ${state.tab==='mehr'&&!state.sub?'active':''}" onclick="go('mehr')">⋯<span>Mehr</span></button>
+  </div>`;
+}
+
+function renderHome(d, me, profile, partnerName, waiting, latest, daysTogether, incoming, openShopping){
+  return `
+  <div class="px20" style="padding-top:32px;text-align:center;background:linear-gradient(180deg, var(--accent2)55 0%, var(--bg) 75%);">
+    <div style="font-size:56px;">❤️</div>
+    <svg width="140" height="28" viewBox="0 0 140 30" style="margin-top:4px;">
+      <polyline class="heart-pulse" points="0,15 30,15 40,4 50,26 60,15 90,15 100,6 110,24 120,15 140,15" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h1 class="serif" style="font-size:24px;font-weight:700;margin:6px 0 0;">${esc(profile.members.join(" & "))}</h1>
+    <p class="muted" style="font-size:12px;margin:4px 0 0;">${daysTogether} ${daysTogether===1?"Tag":"Tage"} auf Zweisam</p>
+    <p style="font-size:14px;margin:6px 0 0;">${latest? `${esc(latest.n)} fühlt sich ${esc(latest.m.label)} ${latest.m.emoji}` : "Noch keine Stimmung geteilt"}</p>
+    ${waiting ? `
+    <div class="card" style="margin-top:14px;text-align:left;">
+      <p class="muted" style="font-size:12px;margin:0;">Teile diesen Code, damit dein:e Partner:in beitreten kann:</p>
+      <div class="row between" style="margin-top:8px;">
+        <span class="gold" style="font-size:22px;letter-spacing:4px;font-weight:700;">${me.code}</span>
+        <button onclick="navigator.clipboard&&navigator.clipboard.writeText('${me.code}')" style="background:var(--border);border-radius:10px;padding:8px;color:var(--text);">📋</button>
+      </div>
+    </div>` : ""}
+  </div>
+  <div class="grid2 px20" style="margin-top:20px;">
+    <button class="tile" onclick="go('home','tagesfrage')"><span style="font-size:26px;">❓</span><span>Tagesfrage</span></button>
+    <button class="tile" onclick="go('home','stimmung')"><span style="font-size:26px;">🙂</span><span>Stimmung</span></button>
+    <button class="tile" onclick="go('home','nachricht')"><span style="font-size:26px;">💌</span><span>Nachricht senden</span></button>
+    <button class="tile" onclick="go('home','signale')"><span style="font-size:26px;">✨</span><span>Geheime Signale</span></button>
+    <button class="tile" onclick="go('home','einkauf')"><span style="font-size:26px;">🛒</span><span>Einkaufsliste${openShopping?` (${openShopping})`:""}</span></button>
+    <button class="tile" onclick="go('home','aktivitaeten')"><span style="font-size:26px;">📍</span><span>Aktivitäten</span></button>
+  </div>
+  ${incoming.length ? `
+  <div class="px20" style="margin-top:20px;">
+    <p class="muted" style="font-size:12px;margin-bottom:8px;">Zuletzt von ${esc(partnerName||"deinem Partner")}</p>
+    <div style="display:flex;gap:8px;overflow-x:auto;">
+      ${incoming.map(s=>`<div class="card" style="padding:8px 12px;white-space:nowrap;flex-shrink:0;">
+        <span style="font-size:18px;">${s.emoji}</span> <span class="muted" style="font-size:11px;">${timeAgo(s.time)}</span></div>`).join("")}
+    </div>
+  </div>` : ""}
+  `;
+}
+
+function renderStimmung(d, me, partnerName, myMood, partnerMood){
+  return topBar("Stimmung", {tab:"home"}) + `
+  <div class="px20">
+    <p class="muted" style="font-size:13px;margin-bottom:12px;">Wie fühlst du dich gerade?</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;">
+      ${MOODS.map(m=>`<button onclick='setMood(${JSON.stringify(m)})' style="border-radius:16px;padding:12px 4px;
+        background:${myMood?.label===m.label?"rgba(232,83,107,0.2)":"var(--card)"};
+        border:1px solid ${myMood?.label===m.label?"var(--accent)":"var(--border)"};display:flex;flex-direction:column;gap:4px;align-items:center;">
+        <span style="font-size:22px;">${m.emoji}</span><span class="muted" style="font-size:10px;">${m.label}</span></button>`).join("")}
+    </div>
+    <div class="card">
+      <p class="muted" style="font-size:12px;margin:0;">Du</p>
+      <p style="font-size:15px;margin:2px 0 0;">${myMood?`${myMood.emoji} ${myMood.label}`:"Noch nicht gesetzt"}</p>
+      ${partnerName?`<div style="height:1px;background:var(--border);margin:12px 0;"></div>
+      <p class="muted" style="font-size:12px;margin:0;">${esc(partnerName)}</p>
+      <p style="font-size:15px;margin:2px 0 0;">${partnerMood?`${partnerMood.emoji} ${partnerMood.label}`:"Noch nicht geteilt"}</p>`:""}
+    </div>
+  </div>`;
+}
+
+function renderTagesfrage(d, me, partnerName){
+  const q = QUESTIONS[dayIndex()%QUESTIONS.length];
+  const entry = (d.tagesfrage||{})[todayKey()] || {answers:{}};
+  const myAnswer = entry.answers?.[me.name] || "";
+  const partnerAnswer = partnerName ? entry.answers?.[partnerName] : null;
+  return topBar("Tagesfrage", {tab:"home"}) + `
+  <div class="px20">
+    <div class="card" style="margin-bottom:16px;">
+      <p class="gold" style="font-size:12px;margin:0 0 6px;">Heutige Frage</p>
+      <p class="serif" style="font-size:16px;margin:0;">${esc(q)}</p>
+    </div>
+    ${!myAnswer ? `
+      <textarea id="tfInput" rows="4" placeholder="Deine Antwort..."></textarea>
+      <button class="btn-primary" style="margin-top:10px;" onclick="saveAnswer(document.getElementById('tfInput').value)">Antwort teilen</button>
+    ` : `
+      <div class="card" style="margin-bottom:12px;">
+        <p class="muted" style="font-size:12px;margin:0;">Deine Antwort</p>
+        <p style="font-size:15px;margin:4px 0 0;">${esc(myAnswer)}</p>
+      </div>
+      <div class="card">
+        <p class="muted" style="font-size:12px;margin:0;">${esc(partnerName||"Partner:in")}</p>
+        <p style="font-size:15px;margin:4px 0 0;">${partnerAnswer?esc(partnerAnswer):"Wartet noch auf eine Antwort..."}</p>
+      </div>
+    `}
+  </div>`;
+}
+
+function renderNachricht(d, me){
+  const messages = d.messages||[];
+  setTimeout(()=>{ const el=document.getElementById("msgEnd"); el&&el.scrollIntoView({block:"nearest"}); }, 0);
+  return topBar("Nachricht senden", {tab:"home"}) + `
+  <div class="px20" style="display:flex;flex-direction:column;gap:2px;min-height:300px;">
+    ${messages.length===0?`<p class="muted" style="font-size:13px;">Noch keine Nachrichten. Schreib etwas Liebes ✨</p>`:""}
+    ${messages.map(m=>`<div>
+      <div class="bubble ${m.from===me.name?"mine":"theirs"}">${esc(m.text)}</div>
+      <p class="muted" style="font-size:10px;margin:2px 0 8px;text-align:${m.from===me.name?"right":"left"};">${timeAgo(m.time)}</p>
+    </div>`).join("")}
+    <div id="msgEnd"></div>
+  </div>
+  <div class="row gap8 px20" style="margin-top:12px;">
+    <input id="msgInput" placeholder="Schreib etwas..." onkeydown="if(event.key==='Enter'){sendMessage(this.value);this.value='';}" />
+    <button onclick="const i=document.getElementById('msgInput'); sendMessage(i.value); i.value='';" style="background:var(--accent);border-radius:14px;padding:0 16px;color:#fff;height:44px;">➤</button>
+  </div>`;
+}
+
+function renderSignale(d, me, partnerName){
+  const signals = d.signals||[];
+  return topBar("Geheime Signale", {tab:"home"}) + `
+  <div class="px20">
+    <p class="muted" style="font-size:13px;margin-bottom:12px;">Ein Antippen genügt — ${esc(partnerName||"dein Partner")} sieht es sofort.</p>
+    <div class="grid2" style="margin-bottom:20px;">
+      ${SIGNALS.map(s=>`<button onclick='sendSignal(${JSON.stringify(s)})' style="border-radius:16px;padding:16px 6px;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;gap:6px;align-items:center;">
+        <span style="font-size:24px;">${s.emoji}</span><span style="font-size:12px;text-align:center;">${s.label}</span></button>`).join("")}
+    </div>
+    <p class="muted" style="font-size:12px;margin-bottom:8px;">Verlauf</p>
+    ${signals.length===0?`<p class="muted" style="font-size:13px;">Noch keine Signale gesendet.</p>`:
+      signals.slice().reverse().slice(0,12).map(s=>`<div class="item">
+        <span style="font-size:13px;">${s.emoji} ${s.label}</span>
+        <span class="muted" style="font-size:11px;">${s.from===me.name?"Du":esc(s.from)} · ${timeAgo(s.time)}</span>
+      </div>`).join("")}
+  </div>`;
+}
+
+function checkRow(item, onToggle, onRemove){
+  return `<div class="item">
+    <button onclick="${onToggle}(${item.id})" style="flex:1;display:flex;align-items:center;gap:12px;background:none;color:inherit;text-align:left;">
+      <span class="checkbox ${item.done?"done":""}">${item.done?"✓":""}</span>
+      <span style="${item.done?"color:var(--muted);text-decoration:line-through;":""}">${esc(item.text)}${item.tag?`<br/><span class="gold" style="font-size:10px;">${item.tag}</span>`:""}</span>
+    </button>
+    <button onclick="${onRemove}(${item.id})" style="color:var(--muted);background:none;">🗑</button>
+  </div>`;
+}
+
+function renderListe(title, items, toggleFn, removeFn, inputId, placeholder, back, showClear){
+  return topBar(title, back) + `
+  <div class="px20">
+    <div class="row gap8" style="margin-bottom:14px;">
+      <input id="${inputId}" placeholder="${placeholder}" onkeydown="if(event.key==='Enter'){${inputId==='addShoppingInput'?'addShopping':''}(this.value);this.value='';}" />
+      <button onclick="const i=document.getElementById('${inputId}'); addShopping(i.value); i.value='';" style="background:var(--accent);border-radius:14px;padding:0 16px;color:#fff;height:44px;">+</button>
+    </div>
+    ${showClear?`<button onclick="clearDoneShopping()" class="muted" style="background:none;font-size:12px;margin-bottom:10px;">Erledigte löschen</button>`:""}
+    ${items.length===0?`<p class="muted" style="font-size:13px;">Liste ist leer.</p>`:items.map(i=>checkRow(i, toggleFn, removeFn)).join("")}
+  </div>`;
+}
+
+function renderAktivitaeten(d){
+  const activities = d.activities||[];
+  return topBar("Aktivitäten", {tab:"home"}) + `
+  <div class="px20">
+    <p class="muted" style="font-size:13px;margin-bottom:10px;">Eure gemeinsame Ideenliste für Unternehmungen.</p>
+    <div class="card" style="margin-bottom:16px;">
+      <input id="actInput" placeholder="z. B. Wanderung am See" style="margin-bottom:10px;" />
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">
+        ${ACTIVITY_TAGS.map((t,i)=>`<button class="tag ${i===0?'active':''}" data-tag="${t}" onclick="document.querySelectorAll('[data-tag]').forEach(b=>b.classList.remove('active'));this.classList.add('active');">${t}</button>`).join("")}
+      </div>
+      <button class="btn-primary" onclick="const t=document.getElementById('actInput'); const tag=document.querySelector('[data-tag].active').dataset.tag; addActivity(t.value, tag); t.value='';">Idee hinzufügen</button>
+    </div>
+    ${activities.length===0?`<p class="muted" style="font-size:13px;">Noch keine Ideen gesammelt.</p>`:activities.map(a=>checkRow(a,"toggleActivity","removeActivity")).join("")}
+  </div>`;
+}
+
+function renderIntimitaet(d, me, partnerName){
+  const intimacy = d.intimacy || {checkins:{}, ideas:[]};
+  const myLevel = intimacy.checkins?.[me.name];
+  const partnerLevel = partnerName ? intimacy.checkins?.[partnerName] : null;
+  return topBar("Intimität", {tab:"mehr"}) + `
+  <div class="px20">
+    <p class="muted" style="font-size:13px;margin-bottom:12px;">Ein privater, ehrlicher Ort nur für euch beide.</p>
+    <div class="card" style="margin-bottom:16px;">
+      <p class="muted" style="font-size:12px;margin:0 0 10px;">Wie ist dein Verlangen gerade?</p>
+      <div class="row gap8" style="margin-bottom:14px;">
+        ${LUST_LEVELS.map(l=>`<button onclick='setLust(${JSON.stringify(l)})' style="flex:1;padding:12px 4px;border-radius:14px;
+          background:${myLevel?.label===l.label?"rgba(232,83,107,0.2)":"var(--bg2)"};
+          border:1px solid ${myLevel?.label===l.label?"var(--accent)":"var(--border)"};display:flex;flex-direction:column;gap:4px;align-items:center;">
+          <span style="font-size:20px;">${l.emoji}</span><span class="muted" style="font-size:10px;text-align:center;">${l.label}</span></button>`).join("")}
+      </div>
+      <div style="height:1px;background:var(--border);margin-bottom:10px;"></div>
+      <p class="muted" style="font-size:12px;margin:0;">Du: ${myLevel?`${myLevel.emoji} ${myLevel.label}`:"noch nicht angegeben"}</p>
+      ${partnerName?`<p class="muted" style="font-size:12px;margin:4px 0 0;">${esc(partnerName)}: ${partnerLevel?`${partnerLevel.emoji} ${partnerLevel.label}`:"noch nicht angegeben"}</p>`:""}
+    </div>
+    <p class="muted" style="font-size:12px;margin-bottom:8px;">Gemeinsame Ideenliste</p>
+    <div class="row gap8" style="margin-bottom:14px;">
+      <input id="ideaInput" placeholder="Eigene Idee hinzufügen..." onkeydown="if(event.key==='Enter'){addIdea(this.value);this.value='';}" />
+      <button onclick="const i=document.getElementById('ideaInput'); addIdea(i.value); i.value='';" style="background:var(--accent);border-radius:14px;padding:0 16px;color:#fff;height:44px;">+</button>
+    </div>
+    ${(intimacy.ideas||[]).map(i=>checkRow(i,"toggleIdea","removeIdea")).join("")}
+  </div>`;
+}
+
+function renderTechnik(d){
+  const items = d.technik||[];
+  return topBar("Technik & Zugänge", {tab:"mehr"}) + `
+  <div class="px20">
+    <p class="muted" style="font-size:13px;margin-bottom:12px;">WLAN, Streaming-Zugänge, Smart-Home & Co. — für euch beide griffbereit.</p>
+    <div class="card" style="margin-bottom:16px;">
+      <input id="techTitle" placeholder="z. B. WLAN" style="margin-bottom:8px;" />
+      <input id="techValue" placeholder="z. B. Passwort oder Notiz" style="margin-bottom:8px;" />
+      <button class="btn-primary" onclick="const t=document.getElementById('techTitle'),v=document.getElementById('techValue'); addTechnik(t.value,v.value); t.value='';v.value='';">Hinzufügen</button>
+    </div>
+    ${items.length===0?`<p class="muted" style="font-size:13px;">Noch keine Einträge.</p>`:items.map(i=>`<div class="item">
+      <div><p style="font-size:14px;margin:0;">📶 ${esc(i.title)}</p><p class="muted" style="font-size:12px;margin:2px 0 0 22px;">${esc(i.value)}</p></div>
+      <button onclick="removeTechnik(${i.id})" style="color:var(--muted);background:none;">🗑</button>
+    </div>`).join("")}
+  </div>`;
+}
+
+function renderKalender(d){
+  const events = d.events||[];
+  const today = new Date();
+  const cursor = state.calCursor;
+  const cells = monthGrid(cursor.getFullYear(), cursor.getMonth());
+  const eventDays = new Set(events.map(e=>e.date));
+  const selected = state.calSelected;
+  const dayEvents = events.filter(e=>e.date===selected).sort((a,b)=>(a.time||"").localeCompare(b.time||""));
+  return topBar("Kalender") + `
+  <div class="px20">
+    <div class="card" style="margin-bottom:16px;">
+      <div class="row between" style="margin-bottom:10px;">
+        <button onclick="changeMonth(-1)" style="background:none;color:var(--muted);font-size:16px;">‹</button>
+        <span class="serif" style="font-size:16px;">${MONTHS[cursor.getMonth()]} ${cursor.getFullYear()}</span>
+        <button onclick="changeMonth(1)" style="background:none;color:var(--muted);font-size:16px;">›</button>
+      </div>
+      <div class="calgrid" style="margin-bottom:4px;">${WEEKDAYS.map(w=>`<div class="muted" style="font-size:10px;text-align:center;">${w}</div>`).join("")}</div>
+      <div class="calgrid">
+        ${cells.map(c=>{
+          if(!c) return `<div></div>`;
+          const key = ymd(c); const isToday = key===ymd(today); const isSel = key===selected; const hasEv = eventDays.has(key);
+          return `<button class="calcell ${isSel?"selected":""} ${isToday?"today":""}" onclick="selectDay('${key}')">
+            <span>${c.getDate()}</span>${hasEv?`<span class="dot"></span>`:""}</button>`;
+        }).join("")}
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <p class="muted" style="font-size:12px;margin:0 0 8px;">Neuer Termin am ${new Date(selected).toLocaleDateString("de-DE",{day:"2-digit",month:"long"})}</p>
+      <input id="evTitle" placeholder="Titel (z. B. Date Night)" style="margin-bottom:8px;" />
+      <div class="row gap8">
+        <input id="evTime" type="time" style="flex:1;" />
+        <button onclick="const t=document.getElementById('evTitle'),ti=document.getElementById('evTime'); addEvent(t.value, state.calSelected, ti.value); t.value='';ti.value='';" style="background:var(--accent);border-radius:10px;padding:0 14px;color:#fff;height:44px;">+</button>
+      </div>
+    </div>
+    ${dayEvents.length===0?`<p class="muted" style="font-size:13px;">Keine Termine an diesem Tag.</p>`:dayEvents.map(e=>`<div class="item">
+      <div><p style="font-size:14px;margin:0;">${esc(e.title)}</p><p class="muted" style="font-size:11px;margin:2px 0 0;">${e.time?`${e.time} Uhr · `:""}von ${esc(e.by)}</p></div>
+      <button onclick="removeEvent(${e.id})" style="color:var(--muted);background:none;">🗑</button>
+    </div>`).join("")}
+  </div>`;
+}
+function changeMonth(delta){ state.calCursor = new Date(state.calCursor.getFullYear(), state.calCursor.getMonth()+delta, 1); render(); }
+function selectDay(key){ state.calSelected = key; render(); }
+
+function renderAufgaben(d){
+  const tasks = d.tasks||[];
+  return topBar("Aufgaben") + `
+  <div class="px20">
+    <div class="row gap8" style="margin-bottom:14px;">
+      <input id="taskInput" placeholder="Neue Aufgabe..." onkeydown="if(event.key==='Enter'){addTask(this.value);this.value='';}" />
+      <button onclick="const i=document.getElementById('taskInput'); addTask(i.value); i.value='';" style="background:var(--accent);border-radius:14px;padding:0 16px;color:#fff;height:44px;">+</button>
+    </div>
+    ${tasks.length===0?`<p class="muted" style="font-size:13px;">Keine offenen Aufgaben.</p>`:tasks.map(t=>checkRow(t,"toggleTask","removeTask")).join("")}
+  </div>`;
+}
+
+function renderAusgaben(d, profile){
+  const expenses = d.expenses||[];
+  const balancePerPerson = {}; profile.members.forEach(m=>balancePerPerson[m]=0);
+  let total=0; expenses.forEach(e=>{ total+=e.amount; balancePerPerson[e.paidBy]=(balancePerPerson[e.paidBy]||0)+e.amount; });
+  let balanceLine = "Noch keine Ausgaben";
+  if(profile.members.length===2){
+    const [a,b]=profile.members; const half=((balancePerPerson[a]||0)-(balancePerPerson[b]||0))/2;
+    balanceLine = Math.abs(half)>0.005 ? (half>0?`${b} schuldet ${a} ${half.toFixed(2)} €`:`${a} schuldet ${b} ${Math.abs(half).toFixed(2)} €`) : "Ihr seid quitt.";
+  }
+  return topBar("Ausgaben", {tab:"mehr"}) + `
+  <div class="px20">
+    <div class="card" style="margin-bottom:16px;">
+      <p class="muted" style="font-size:12px;margin:0;">Gesamt gemeinsam ausgegeben</p>
+      <p class="gold serif" style="font-size:24px;margin:2px 0 0;">${total.toFixed(2)} €</p>
+      <p style="font-size:13px;margin:8px 0 0;">${balanceLine}</p>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <input id="expDesc" placeholder="Wofür? (z. B. Restaurant)" style="margin-bottom:8px;" />
+      <div class="row gap8" style="margin-bottom:8px;">
+        <input id="expAmount" placeholder="Betrag €" inputmode="decimal" style="flex:1;" />
+        <select id="expPaidBy" style="flex:1;">${profile.members.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join("")}</select>
+      </div>
+      <button class="btn-primary" onclick="const d=document.getElementById('expDesc'),a=document.getElementById('expAmount'),p=document.getElementById('expPaidBy'); addExpense(d.value,a.value,p.value); d.value='';a.value='';">Hinzufügen</button>
+    </div>
+    ${expenses.length===0?`<p class="muted" style="font-size:13px;">Noch keine Ausgaben erfasst.</p>`:expenses.slice().reverse().map(e=>`<div class="item">
+      <div><p style="font-size:14px;margin:0;">${esc(e.desc)}</p><p class="muted" style="font-size:11px;margin:2px 0 0;">bezahlt von ${esc(e.paidBy)}</p></div>
+      <div class="row gap12"><span class="gold" style="font-size:14px;">${e.amount.toFixed(2)} €</span><button onclick="removeExpense(${e.id})" style="color:var(--muted);background:none;">🗑</button></div>
+    </div>`).join("")}
+  </div>`;
+}
+
+function renderMehr(d, profile, me){
+  const expenses = d.expenses||[];
+  const balancePerPerson = {}; profile.members.forEach(m=>balancePerPerson[m]=0);
+  expenses.forEach(e=>{ balancePerPerson[e.paidBy]=(balancePerPerson[e.paidBy]||0)+e.amount; });
+  let balanceLine = "Noch keine Ausgaben";
+  if(profile.members.length===2){
+    const [a,b]=profile.members; const half=((balancePerPerson[a]||0)-(balancePerPerson[b]||0))/2;
+    balanceLine = Math.abs(half)>0.005 ? (half>0?`${b} schuldet ${a} ${half.toFixed(2)} €`:`${a} schuldet ${b} ${Math.abs(half).toFixed(2)} €`) : "Ihr seid quitt.";
+  }
+  const rows = [
+    {id:"ausgaben", icon:"💶", label:"Ausgaben", sub:balanceLine},
+    {id:"intimitaet", icon:"❤️", label:"Intimität", sub:"Verlangen & Ideen, privat für euch"},
+    {id:"technik", icon:"📶", label:"Technik & Zugänge", sub:"WLAN, Streaming, Notizen"},
+  ];
+  return topBar("Mehr") + `
+  <div class="px20">
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+      ${rows.map(r=>`<button onclick="go('mehr','${r.id}')" style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 16px;text-align:left;color:inherit;">
+        <span style="font-size:20px;">${r.icon}</span>
+        <span style="flex:1;"><span style="font-size:15px;display:block;">${r.label}</span><span class="muted" style="font-size:12px;">${r.sub}</span></span>
+      </button>`).join("")}
+    </div>
+    <div class="card">
+      <p class="muted" style="font-size:12px;margin:0;">Euer Paar-Code</p>
+      <p class="gold" style="font-size:20px;letter-spacing:3px;font-weight:700;margin:2px 0 0;">${me.code}</p>
+      <button onclick="doLeave()" class="muted" style="background:none;font-size:13px;margin-top:14px;">🚪 Gerät trennen</button>
+    </div>
+  </div>`;
+}
+
+function attachApp(){ /* alle Handler laufen über inline onclick, kein extra Attach nötig */ }
+
+/* ============================= START ============================= */
+boot();
+</script>
+</body>
+</html>
